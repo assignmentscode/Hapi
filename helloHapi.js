@@ -1,13 +1,13 @@
 const Hapi = require('hapi');
 const server = Hapi.server({
   host: 'localhost',
-  port: Number(process.argv[2] || 8080)
+  port: 8080
 });
 server.route({
   method:'GET',
   path:'/',
   handler: (request,h) => {
-    return 'hello world';
+    return 'Hello hapi';
   }
 });
 // Start the server
@@ -22,3 +22,4 @@ const start =  async () => {
   console.log('Server running at:', server.info.uri);
 };
 start();
+module.exports = server;
